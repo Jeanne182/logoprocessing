@@ -19,11 +19,22 @@ float [] coordonneesBase= {rayonCentre, 0,                                      
                           sqrt(2)*rayonCentre/2, -sqrt(2)*rayonCentre/2};
                           
 void draw() {
+  
   scale(1, -1);                                                                          // inverse l'axe y
   translate(width/2, -height/2);                                                         // centre l'origine du repère
   stroke(0);
   fill(255);
   circle(0, 0, diametreCentre);
+  
+  //Formes
+  //text(mouseX mouseY, 10, 30);
+  beginShape();
+  curveVertex(100, 200);
+  curveVertex(coordonneesBase[0], coordonneesBase[1]);
+  curveVertex(mouseY, mouseX);
+  curveVertex(500, 500);
+  endShape();
+    
   stroke(50);
   line(coordonneesBase[0], coordonneesBase[1], rayonCentre*taille, 0);                                                        //On trace les lignes
   line(coordonneesBase[2], coordonneesBase[3], sqrt(2)*rayonCentre*taille/2, sqrt(2)*rayonCentre*taille/2);
@@ -36,6 +47,10 @@ void draw() {
   if (taille < tailleMax) {taille = taille + 0.1;}
   if (transparency > 0) { transparency += 0.25; }
     tint (0,transparency);
+    
+   
+   
+  
 
 }
 

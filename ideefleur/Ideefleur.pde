@@ -1,13 +1,17 @@
-void setup() {
-  size(800, 800);
-  background(255);
-  frameRate(30);
-}  
 int diametreCentre = 50;                                                                  // Diamètre du cercle central (invisible)
 int rayonCentre = diametreCentre/2;
 float taille = 0;                                                                           // Permet de définir la "taille" de la ligne (ou des formes)
 float tailleMax = 15;
 float transparency = 0;
+PShape fleur;
+
+void setup() {
+  size(800, 800);
+  background(255);
+  frameRate(30);
+  fleur = loadShape("petale.svg");
+}  
+
 
 float [] coordonneesBase= {rayonCentre, 0,                                                // Tableau contenant les coordonnees des bases de chaque forme
                           sqrt(2)*rayonCentre/2, sqrt(2)*rayonCentre/2,
@@ -18,7 +22,9 @@ float [] coordonneesBase= {rayonCentre, 0,                                      
                           0, -rayonCentre,
                           sqrt(2)*rayonCentre/2, -sqrt(2)*rayonCentre/2};
                           
-void draw() {
+void draw(){
+  fleur.setFill(false);
+  shape(fleur, 10, 10, 80, 80);
   
   scale(1, -1);                                                                          // inverse l'axe y
   translate(width/2, -height/2);                                                         // centre l'origine du repère

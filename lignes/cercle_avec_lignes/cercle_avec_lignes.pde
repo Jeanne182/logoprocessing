@@ -1,0 +1,58 @@
+int diametreCentre = 150;                                                                  // Diamètre du cercle central (invisible)
+int rayonCentre = diametreCentre/2;
+float tailleMin = diametreCentre;                                                                           // Permet de définir la "taille" de la ligne (ou des formes)
+float tailleMax = 300;
+float transparency = 0;
+PShape fleur;
+
+Line[] line_array = new Line[60];
+
+void setup() {
+  size(800, 800);
+  background(255);
+  frameRate(30);
+  
+ for(int i = 0 ; i < line_array.length ; i++){
+    line_array[i]=new Line();
+  }
+  
+  
+}  
+
+void draw(){
+  //float time=millis();
+  //if(time < 1000){taille+=100;}
+  
+   //scale(1, -1);                                                                          // inverse l'axe y
+  translate(width/2, height/2); // centre l'origine du repère
+  background(255);
+  
+  
+  //for(int i=0; i<60; i++){
+  //  float taille = random(tailleMin, tailleMax);
+  //  rotate(PI/30);
+  //  stroke(random(0,255), random(0,255), random(0,255));
+  //  line(0, 0, taille , 0);
+  //}
+  
+  for(int i=0 ; i < line_array.length ; i++){
+    line_array[i].tailleVariation();
+    line_array[i].displayLine();
+    rotate(PI/30);
+  }
+  
+  stroke(255);  
+  fill(255);
+  circle(0, 0, diametreCentre);
+  
+  
+  
+  
+ 
+ 
+
+}
+
+void ligne(float x1, float y1, float x2, float y2) {
+ line(x1,y1,x2,y2);
+ }

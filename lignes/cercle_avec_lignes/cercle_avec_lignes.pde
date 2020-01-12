@@ -1,3 +1,8 @@
+import ddf.minim.*;   // Importing the audio Library called minim
+
+Minim minim;          // Needed to call minim
+AudioInput in;        // Setting a variable called "in" whose type is AudioInput (microphone)
+
 int diametreCentre = 250;                                                                  // Diamètre du cercle central (invisible)
 int rayonCentre = diametreCentre/2;
 float tailleMin = diametreCentre;                                                                           // Permet de définir la "taille" de la ligne (ou des formes)
@@ -10,7 +15,10 @@ Line[] line_array = new Line[60];
 void setup() {
   size(800, 800);
   background(255);
-  frameRate(30);
+  frameRate(60);
+  
+  minim = new Minim(this); //The command "this" is needed to use minim in THIS program
+  in = minim.getLineIn();  //We start recording the microphone
   
  for(int i = 0 ; i < line_array.length ; i++){
     line_array[i]=new Line();
@@ -36,7 +44,7 @@ void draw(){
   //}
   
   for(int i=0 ; i < line_array.length ; i++){
-    line_array[i].tailleVariation();
+    line_array[i].tailleVariation(i);
     line_array[i].displayLine();
     rotate(PI/30);
   }

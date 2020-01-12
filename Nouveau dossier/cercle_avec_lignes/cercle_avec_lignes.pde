@@ -34,8 +34,8 @@ void draw(){
   float y = coordonneesBase[1];
   
   for (int i=0; i<16; i+=2){
-    float x = coordonneesBase[i];
-    float y = coordonneesBase[i+1];
+    x = coordonneesBase[i];
+    y = coordonneesBase[i+1];
     
     
     

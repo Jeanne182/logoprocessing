@@ -1,9 +1,9 @@
-int diametreCentre = 150;                                                                  // Diamètre du cercle central (invisible)
+int diametreCentre = 250;                                                                  // Diamètre du cercle central (invisible)
 int rayonCentre = diametreCentre/2;
 float tailleMin = diametreCentre;                                                                           // Permet de définir la "taille" de la ligne (ou des formes)
 float tailleMax = 300;
-float transparency = 0;
-PShape fleur;
+
+int opacity = 0;
 
 Line[] line_array = new Line[60];
 
@@ -44,15 +44,29 @@ void draw(){
   stroke(255);  
   fill(255);
   circle(0, 0, diametreCentre);
-  
-  
-  
-  
- 
- 
 
 }
 
-void ligne(float x1, float y1, float x2, float y2) {
- line(x1,y1,x2,y2);
- }
+void apparition(){
+  stroke(0,0,0,255);
+  line(0,0,100,100);
+  
+  while(opacity < 255){
+    opacity += 1;
+    stroke(0,0,0,opacity);
+    line(0,0,100,opacity);
+    background(255);
+  }
+    
+}
+
+void mousePressed(){
+  background(255);
+  textSize(32);
+  fill(0, 0, 0);
+  text("Writing the history of the future.", -50, 0);
+  
+  for(int i = 0 ; i < line_array.length ; i++){
+    line_array[i]=new Line();
+  }
+}

@@ -24,7 +24,7 @@ void setup() {
     line_array[i]=new Line();
   }
   
-  
+  smooth();
 }  
 
 void draw(){

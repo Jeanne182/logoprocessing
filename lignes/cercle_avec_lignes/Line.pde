@@ -20,7 +20,7 @@ class Line{
   color couleur=tableauCouleurs[int(random(0,9.9))];
   
   void tailleVariation(int i){
-    taille= 300 +in.left.get(i)*8000; // We get the frequencies from the left entrance (it would be the same with right)
+    taille= 200 +in.left.get(i)*4000; // We get the frequencies from the left entrance (it would be the same with right)
   }                              // We multiply by 8000 so we can really see the variation appear on the screen
   
   void displayLine(){

@@ -15,18 +15,23 @@ class Line{
                            };
                                  
     
-  float taille=100;
-  //color couleur=color(random(0,255), random(0,255), random(0,255));
+  float taille=0;
   color couleur=tableauCouleurs[int(random(0,9.9))];
   
   void tailleVariation(int i){
-    taille= 200 +in.left.get(i)*4000; // We get the frequencies from the left entrance (it would be the same with right)
-  }                              // We multiply by 8000 so we can really see the variation appear on the screen
+    if(150 +in.left.get(i)*4000<300){
+      taille= 150 +in.left.get(i)*4000; // We get the frequencies from the left entrance (it would be the same with right)
+    }
+    else{
+      taille=random(200,300) ;
+    }
+      
+  }                                    // We multiply by 8000 so we can really see the variation appear on the screen
   
   void displayLine(){
     
     stroke(couleur);
-    strokeWeight(4);
+    strokeWeight(8);
     line(0, 0, taille , 0);
   }
   

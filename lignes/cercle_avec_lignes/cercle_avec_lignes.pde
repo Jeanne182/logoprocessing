@@ -1,4 +1,5 @@
 import ddf.minim.*;   // Importing the audio Library called minim
+PFont myFont;
 
 Minim minim;          // Needed to call minim
 AudioInput in;        // Setting a variable called "in" whose type is AudioInput (microphone)
@@ -10,10 +11,11 @@ float tailleMax = 300;
 
 int opacity = 0;
 
-Line[] line_array = new Line[60];
+Line[] line_array = new Line[21];
 
 void setup() {
-  size(800, 800);
+  fullScreen();
+  //size(800, 800);
   background(255);
   frameRate(60);
   
@@ -28,31 +30,31 @@ void setup() {
 }  
 
 void draw(){
-  //float time=millis();
-  //if(time < 1000){taille+=100;}
-  
-   //scale(1, -1);                                                                          // inverse l'axe y
   translate(width/2, height/2); // centre l'origine du repère
   background(255);
   
   
-  //for(int i=0; i<60; i++){
-  //  float taille = random(tailleMin, tailleMax);
-  //  rotate(PI/30);
-  //  stroke(random(0,255), random(0,255), random(0,255));
-  //  line(0, 0, taille , 0);
-  //}
-  
   for(int i=0 ; i < line_array.length ; i++){
     line_array[i].tailleVariation(i);
     line_array[i].displayLine();
-    rotate(PI/30);
+    rotate(-PI/20);
   }
+  
+  rotate(21*PI/20);
   
   stroke(255);  
   fill(255);
   circle(0, 0, diametreCentre);
-
+  fill(255);
+  rect(-width/2,8,width,height/2);
+  myFont = createFont("data/futur.ttf", 30);
+  textFont(myFont);
+  textAlign(CENTER);
+  fill(0, 0, 0,255);
+  //text("WTH", -58, 60);
+  text("Writing the History of the Future", 0, 55);
+  textSize(22);
+  text("- ZKM -", 0, 90);
 }
 
 void apparition(){
@@ -62,18 +64,13 @@ void apparition(){
   while(opacity < 255){
     opacity += 1;
     stroke(0,0,0,opacity);
-    line(0,0,100,opacity);
+    line(0,0,100,100);
     background(255);
   }
     
 }
 
-void mousePressed(){
-  background(255);
-  textSize(32);
-  fill(0, 0, 0);
-  text("Writing the history of the future.", -50, 0);
-  
+void mousePressed(){  
   for(int i = 0 ; i < line_array.length ; i++){
     line_array[i]=new Line();
   }

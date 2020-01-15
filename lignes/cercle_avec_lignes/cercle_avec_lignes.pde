@@ -55,6 +55,7 @@ void draw(){
   text("Writing the History of the Future", 0, 55);
   textSize(22);
   text("- ZKM -", 0, 90);
+  changeColors();
 }
 
 void apparition(){
@@ -67,11 +68,19 @@ void apparition(){
     line(0,0,100,100);
     background(255);
   }
-    
+   
 }
 
 void mousePressed(){  
   for(int i = 0 ; i < line_array.length ; i++){
     line_array[i]=new Line();
+  }
+}
+
+void changeColors() {
+  for (int i = 0 ; i < line_array.length ; i++) {
+    if (in.left.get(i)*10 > 1 ) {
+      line_array[i]=new Line();
+    }
   }
 }

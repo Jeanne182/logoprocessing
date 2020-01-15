@@ -20,10 +20,10 @@ class Line{
   
   void tailleVariation(int i){
     if(150 +in.left.get(i)*4000<300){
-      taille= 150 +in.left.get(i)*4000; // We get the frequencies from the left entrance (it would be the same with right)
+      taille= 200 +in.left.get(i)*4000; // We get the frequencies from the left entrance (it would be the same with right)
     }
     else{
-      taille=random(200,300) ;
+      taille=random(300,400) ;
     }
       
   }                                    // We multiply by 8000 so we can really see the variation appear on the screen

@@ -4,9 +4,9 @@ PFont myFont;
 Minim minim;          // Needed to call minim
 AudioInput in;        // Setting a variable called "in" whose type is AudioInput (microphone)
 
-int diametreCentre = 250;                                                                  // Diamètre du cercle central (invisible)
+int diametreCentre = 250;                 // Diamètre du cercle central (invisible)
 int rayonCentre = diametreCentre/2;
-float tailleMin = diametreCentre;                                                                           // Permet de définir la "taille" de la ligne (ou des formes)
+float tailleMin = diametreCentre;         // Permet de définir la "taille" de la ligne (ou des formes)
 float tailleMax = 300;
 
 int opacity = 0;
